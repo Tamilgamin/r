@@ -1,0 +1,70 @@
+🚀 Master Prompt: Professional Incubator Monitor Mobile App
+Role: Act as a world-class Senior Mobile Engineer.
+Task: Build a high-fidelity, production-ready React Native (Expo) mobile application for monitoring a chicken incubator via MQTT.
+
+1. Technical Stack & Requirements
+Framework: React Native with Expo (SDK 50+).
+
+Communication: Use mqtt (specifically mqtt/dist/mqtt for RN compatibility).
+
+Broker: Connect to HiveMQ Cloud (WSS) using:
+
+Host: 57f9938c484c4f0f9ad4b79b70ae3bf7.s1.eu.hivemq.cloud
+
+Port: 8884
+
+Topic: incubator/temp
+
+Libraries: lucide-react-native, expo-notifications, expo-av (for sound), react-native-svg.
+
+2. Core Functionalities
+Real-time Monitoring: Display live temperature data with a "Pulse" animation every time a new value arrives.
+
+Smart Alarm System:
+
+Adjustable High and Low temperature thresholds in the settings.
+
+Master Alarm Toggle to enable/disable all alerts.
+
+Sound Alert: Play a looping alarm sound when thresholds are breached.
+
+Push Notifications: Send a local notification even if the app is in the background.
+
+Auto-Mute: Alarm should automatically stop after a user-defined duration (seconds/minutes).
+
+Robust Connectivity: Implement auto-reconnect logic. The UI must clearly show 3 states: Connected (Emerald), Reconnecting (Amber pulse), and Disconnected (Red).
+
+3. UI/UX Design (The "Ditto" Look)
+Theme: Dark Mode (Zinc-950 background).
+
+Primary Accent: Emerald Green (#10b981).
+
+Dashboard:
+
+Large, thin-weight temperature display in the center.
+
+A circular border that pulses when data updates.
+
+Trend Indicators: Small "RISING" (Red) or "FALLING" (Blue) text with icons that appear only when the temperature changes.
+
+Status badges showing "NORMAL", "HIGH", or "LOW" based on current thresholds.
+
+Settings:
+
+Clean, curved "Bento Box" style cards.
+
+Numeric inputs for thresholds and alarm duration.
+
+A "Test Alarm" button to verify sound and vibration.
+
+4. Mobile Specifics
+Permissions: Include NOTIFICATIONS, VIBRATE, and WAKE_LOCK in the configuration.
+
+Background Mode: Ensure the MQTT client stays alive as long as possible in the background.
+
+Animations: Use the Animated API for smooth transitions between the Monitor and Settings tabs.
+
+Output Requirement: Provide the complete App.js, app.json with permissions, and the package.json dependencies. Ensure the code is clean, typed, and ready for eas build.
+
+💡 Pro-Tip for the next AI:
+Tell the AI: *"Make sure to use the dist version of MQTT to avoid 'Buffer not found' errors in React Native, and wrap
