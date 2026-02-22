@@ -17,6 +17,8 @@ export function useMqtt() {
     
     try {
       const client = mqtt.connect(url, {
+        username: 'qqqqq',
+        password: 'Agash2008',
         reconnectPeriod: 5000,
         connectTimeout: 4000,
         keepalive: 30,
