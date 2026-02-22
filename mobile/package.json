@@ -16,6 +16,7 @@
     "lucide-react-native": "^0.368.0",
     "expo-notifications": "~0.27.6",
     "expo-av": "~13.10.5",
+    "expo-document-picker": "~11.10.1",
     "mqtt": "^5.5.2",
     "react-native-svg": "14.1.0"
   },
