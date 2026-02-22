@@ -1,18 +1,16 @@
-import { sql } from "drizzle-orm";
-import { pgTable, text, varchar } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const users = pgTable("users", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+export const settings = pgTable("settings", {
+  id: serial("id").primaryKey(),
+  highThreshold: text("high_threshold").notNull().default("38.0"),
+  lowThreshold: text("low_threshold").notNull().default("36.0"),
+  masterAlarm: boolean("master_alarm").notNull().default(true),
+  alarmDuration: text("alarm_duration").notNull().default("60"),
+  alarmSound: text("alarm_sound").notNull().default("default"),
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
-});
-
-export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
+export const insertSettingsSchema = createInsertSchema(settings).omit({ id: true });
+export type Settings = typeof settings.$inferSelect;
+export type InsertSettings = z.infer<typeof insertSettingsSchema>;
