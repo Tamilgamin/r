@@ -11,7 +11,7 @@ const formSchema = z.object({
   highThreshold: z.string().regex(/^\d+(\.\d+)?$/, "Must be a valid number"),
   masterAlarm: z.boolean(),
   alarmDuration: z.string().regex(/^\d+$/, "Must be an integer"),
-  alarmSound: z.enum(["default", "pulse", "siren"]),
+  alarmSound: z.enum(["default", "pulse", "siren", "custom"]),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -164,7 +164,7 @@ export default function Settings() {
               </div>
 
               <div className="space-y-4">
-                {(['default', 'pulse', 'siren'] as const).map((sound) => (
+                {(['default', 'pulse', 'siren', 'custom'] as const).map((sound) => (
                   <button
                     key={sound}
                     type="button"
