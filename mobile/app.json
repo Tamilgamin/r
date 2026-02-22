@@ -14,7 +14,10 @@
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "UIBackgroundModes": ["audio", "fetch"]
+        "UIBackgroundModes": [
+          "audio",
+          "fetch"
+        ]
       }
     },
     "android": {
@@ -25,8 +28,11 @@
       "permissions": [
         "VIBRATE",
         "WAKE_LOCK",
-        "RECEIVE_BOOT_COMPLETED"
-      ]
+        "RECEIVE_BOOT_COMPLETED",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ],
+      "package": "com.agashyogesh.incubator"
     },
     "plugins": [
       [
@@ -42,6 +48,11 @@
           "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "eaff9dde-2982-49a6-942a-93a387da5cbd"
+      }
+    }
   }
 }
